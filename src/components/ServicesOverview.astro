@@ -1,0 +1,59 @@
+---
+const categories = [
+  {
+    title: "Schnelle Hilfe",
+    items: [
+      { label: "PC & Laptop Notdienst", href: "/service/pc-notdienst" },
+      { label: "Drucker einrichten", href: "/service/drucker-einrichten" },
+      { label: "WLAN optimieren", href: "/service/wlan-optimierung" }
+    ]
+  },
+  {
+    title: "Für mobile Geräte",
+    items: [
+      { label: "Smartphone einrichten", href: "/service/smartphone-einrichten" },
+      { label: "Tablet Schulung", href: "/schulung/tablet-schulung" },
+      { label: "Online-Sicherheit", href: "/schulung/online-sicherheit" }
+    ]
+  },
+  {
+    title: "Beratung & Planung",
+    items: [
+      { label: "IT-Sicherheit", href: "/beratung/it-sicherheit" },
+      { label: "Smart Home", href: "/beratung/smart-home" },
+      { label: "Geräteauswahl", href: "/beratung/geraeteauswahl" }
+    ]
+  }
+];
+---
+
+<section class="bg-white py-20">
+  <div class="mx-auto w-full max-w-6xl px-6">
+    <div class="text-center">
+      <h2 class="section-heading">Unsere beliebtesten Angebote</h2>
+      <p class="section-subheading mx-auto">
+        Vom schnellen PC-Notdienst bis zur individuellen Schulung – entdecken Sie die passende Unterstützung für Ihren Alltag.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-8 md:grid-cols-3">
+      {categories.map((category) => (
+        <article class="card">
+          <h3 class="text-lg font-semibold text-text">{category.title}</h3>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            {category.items.map((item) => (
+              <li>
+                <a href={item.href} class="inline-flex items-center gap-2 text-brand-blue hover:text-brand-green">
+                  {item.label}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

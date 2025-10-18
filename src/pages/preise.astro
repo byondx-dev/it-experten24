@@ -1,0 +1,118 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+const packages = [
+  {
+    name: "Starter",
+    price: "32 €",
+    description: "Ideal für kurze Fernwartung und schnelle Fragen.",
+    features: [
+      "15 Minuten Fernwartung",
+      "Schnelle Fehleranalyse",
+      "WhatsApp-Support für Nachfragen"
+    ]
+  },
+  {
+    name: "Komfort",
+    price: "64 €",
+    description: "Perfekt für typische Serviceeinsätze vor Ort in München.",
+    features: [
+      "45 Minuten Vor-Ort-Service",
+      "Anfahrt im Stadtgebiet inklusive",
+      "Kurzanleitung zum Nachlesen"
+    ]
+  },
+  {
+    name: "Premium",
+    price: "96 €",
+    description: "Für komplexere Projekte oder ausgiebige Schulungen.",
+    features: [
+      "90 Minuten Vor-Ort oder Remote",
+      "Geräte-Check & Sicherheitsanalyse",
+      "Backup-Empfehlungen"
+    ]
+  },
+  {
+    name: "Rundum",
+    price: "128 €",
+    description: "Unser Rundum-sorglos-Paket inklusive Nachbereitung.",
+    features: [
+      "120 Minuten Betreuung",
+      "Dokumentation & Checklisten",
+      "1 Monat telefonische Nachbetreuung"
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="IT-Preise München: Faire Pakete für Privatkunden"
+  description="Transparente Preise für IT-Hilfe in München: Fernwartung, Vor-Ort-Service und Schulungspakete. Jetzt Paket wählen und Termin buchen."
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-6xl px-6">
+      <span class="badge">Preise</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Transparente Preise für Ihren IT-Service</h1>
+      <p class="mt-4 text-lg text-text/70 max-w-3xl">
+        Wählen Sie das passende Paket oder lassen Sie sich individuell beraten. Alle Preise verstehen sich inkl. MwSt. und Anfahrt im Stadtgebiet München. Für das Umland besprechen wir die Anfahrt separat.
+      </p>
+    </section>
+
+    <section class="mx-auto mt-12 grid w-full max-w-6xl gap-8 px-6 md:grid-cols-2 xl:grid-cols-4">
+      {packages.map((pkg) => (
+        <article class="card flex h-full flex-col gap-6 text-center">
+          <div>
+            <h2 class="text-2xl font-semibold text-text">{pkg.name}</h2>
+            <p class="mt-2 text-sm text-text/70">{pkg.description}</p>
+          </div>
+          <div>
+            <span class="text-4xl font-bold text-brand-blue">{pkg.price}</span>
+          </div>
+          <ul class="flex-1 space-y-3 text-sm text-text/70">
+            {pkg.features.map((feature) => (
+              <li class="flex items-center justify-center gap-2">
+                <span class="inline-flex h-2 w-2 rounded-full bg-brand-green"></span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/kontakt" class="btn-primary mx-auto">Paket wählen</a>
+        </article>
+      ))}
+    </section>
+
+    <section class="mx-auto mt-16 w-full max-w-6xl px-6">
+      <div class="grid gap-8 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-xl font-semibold text-text">Flexible Abrechnung möglich</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Sie haben ein größeres Projekt oder möchten eine laufende Betreuung? Wir bieten Serviceverträge und Abrechnung nach tatsächlichem Aufwand. Sprechen Sie uns an – wir erstellen ein transparentes Angebot.
+          </p>
+        </article>
+        <article class="card">
+          <h2 class="text-xl font-semibold text-text">In allen Paketen enthalten</h2>
+          <ul class="mt-3 space-y-3 text-sm text-text/70">
+            <li>Freundlicher Service & verständliche Erklärungen</li>
+            <li>Dokumentation wichtiger Schritte</li>
+            <li>Tipps für mehr Sicherheit im Alltag</li>
+            <li>Optionale Fernwartung für Folgefragen</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-20 w-full max-w-6xl rounded-3xl bg-white px-6 py-16 text-center">
+      <h2 class="text-3xl font-semibold text-text">Bereit für einen Termin?</h2>
+      <p class="mt-3 text-sm text-text/70">Buchen Sie Ihren Wunschtermin online oder rufen Sie uns direkt an.</p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
+        <a href="/kontakt" class="btn-primary">Kontaktformular</a>
+        <a href="https://wa.me/498912345678" class="btn-secondary">WhatsApp Chat</a>
+        <a href="tel:+498912345678" class="btn-secondary">089 123 45 678</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

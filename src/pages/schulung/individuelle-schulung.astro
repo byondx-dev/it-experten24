@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="Individuelle IT-Schulung München"
+  description="Persönliche IT-Schulung in München: Wir passen Inhalte an Ihr Tempo an – ideal für Senior:innen, Familien und Einsteiger."
+  canonical="https://www.it-experten24.de/schulung/individuelle-schulung"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Schulung</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Individuelle IT-Schulung</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Sie entscheiden, was Sie lernen möchten: Vom Einstieg in Windows oder macOS bis hin zu Fotos, Videotelefonie, Cloud-Diensten oder smarten Haushaltsgeräten. Wir gestalten die Schulung so, dass Sie sofort ins Tun kommen.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Mögliche Themen</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>E-Mail einrichten & Spam filtern</li>
+            <li>Dokumente erstellen und teilen</li>
+            <li>Fotos und Videos organisieren</li>
+            <li>Cloud-Speicher (OneDrive, iCloud, Google Drive)</li>
+            <li>IT-Sicherheit und Passwortmanager</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Ihr Mehrwert</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Wir bereiten jede Schulung individuell vor, liefern verständliche Unterlagen und geben Hausaufgaben, wenn Sie möchten. Unser Team begleitet Sie langfristig – telefonisch, vor Ort oder per Fernwartung.
+          </p>
+          <p class="mt-3 text-sm text-text/70">
+            Auch kleine Lerngruppen (z. B. Hausgemeinschaften oder Freundeskreise) sind möglich.
+          </p>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Zeit buchen</a>
+        <a href="tel:+498912345678" class="btn-secondary">Beratung: 089 123 45 678</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

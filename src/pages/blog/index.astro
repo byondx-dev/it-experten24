@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+---
+
+<BaseLayout
+  title="IT-Blog München: Tipps & Anleitungen"
+  description="IT-Experten 24 Blog: Anleitungen, Sicherheitstipps und Empfehlungen für München."
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Blog</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">IT-Wissen aus München</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Aktuelle Tipps, Schritt-für-Schritt-Anleitungen und Sicherheitshinweise für Ihren digitalen Alltag. Alle Artikel sind verständlich erklärt und stammen aus unserer Praxis bei IT-Experten 24.
+      </p>
+    </section>
+
+    <section class="mx-auto mt-12 w-full max-w-6xl px-6">
+      <div class="grid gap-8 md:grid-cols-3">
+        {sortedPosts.map((post) => (
+          <article class="card flex h-full flex-col gap-4">
+            <a href={`/blog/${post.slug}`} class="block overflow-hidden rounded-2xl">
+              <img src={post.data.heroImage ?? "/images/blog-placeholder.webp"} alt={post.data.title} class="h-48 w-full object-cover transition-transform duration-200 hover:scale-105" loading="lazy" />
+            </a>
+            <div class="flex items-center gap-2 text-xs font-medium text-brand-blue/80">
+              <span>{new Date(post.data.publishedAt).toLocaleDateString("de-DE", { dateStyle: "long" })}</span>
+              {post.data.updatedAt && (
+                <span>• Aktualisiert {new Date(post.data.updatedAt).toLocaleDateString("de-DE", { dateStyle: "long" })}</span>
+              )}
+            </div>
+            <h2 class="text-xl font-semibold text-text">
+              <a href={`/blog/${post.slug}`} class="hover:text-brand-blue">{post.data.title}</a>
+            </h2>
+            <p class="text-sm text-text/70">{post.data.excerpt}</p>
+            <a href={`/blog/${post.slug}`} class="mt-auto inline-flex items-center gap-2 text-sm font-medium text-brand-blue hover:text-brand-green">
+              Weiterlesen
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

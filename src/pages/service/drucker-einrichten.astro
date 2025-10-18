@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="Drucker einrichten & Probleme lösen in München"
+  description="Ihr Drucker druckt nicht? Wir richten Drucker, Scanner und Multifunktionsgeräte in München ein und lösen Fehler schnell."
+  canonical="https://www.it-experten24.de/service/drucker-einrichten"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Service</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Drucker & Scanner einrichten</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Wir sorgen dafür, dass Ihr Drucker zuverlässig arbeitet – egal ob Tintendrucker, Laserdrucker oder Multifunktionsgerät. Wir verbinden ihn mit Ihrem WLAN, richten die passende Software ein und zeigen Schritt für Schritt, wie alles funktioniert.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Was wir übernehmen</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Installation von Treibern & Software</li>
+            <li>Einbindung ins WLAN oder Netzwerk</li>
+            <li>Scan-to-Mail & Scan-to-Cloud einrichten</li>
+            <li>Fehlerdiagnose bei Papierstau oder Fehlermeldungen</li>
+            <li>Tipp: Sparen Sie Tinte mit optimalen Einstellungen</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Für wen sich unsere Hilfe lohnt</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Senior:innen, Familien, Homeoffice-Nutzer:innen und Selbstständige in München, die Wert auf zuverlässige Technik und freundlichen Support legen. Wir erklären geduldig und hinterlassen eine kurze Anleitung zum Nachlesen.
+          </p>
+          <p class="mt-3 text-sm text-text/70">
+            Auch Wartungspakete mit regelmäßiger Überprüfung von Tinte, Treibern und Sicherheit bieten wir an.
+          </p>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Service buchen</a>
+        <a href="tel:+498912345678" class="btn-secondary">Hotline: 089 123 45 678</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import ServicesOverview from "@components/ServicesOverview.astro";
+
+const services = [
+  {
+    category: "Service",
+    title: "PC & Laptop Notdienst",
+    description: "Soforthilfe bei Abstürzen, Viren, langsamen Systemen oder Datenverlust.",
+    href: "/service/pc-notdienst"
+  },
+  {
+    category: "Beratung",
+    title: "Digitale Sicherheit",
+    description: "Wir analysieren Ihr Setup und schützen vor Phishing, Malware und Datenverlust.",
+    href: "/beratung/it-sicherheit"
+  },
+  {
+    category: "Schulung",
+    title: "Smartphone & Tablet Training",
+    description: "Einführung in Apps, Fotos, Messenger und Online-Banking – geduldig erklärt.",
+    href: "/schulung/tablet-schulung"
+  },
+  {
+    category: "Service",
+    title: "WLAN & Netzwerk",
+    description: "Stabiler Empfang in allen Räumen, Einrichtung von Mesh-Systemen und Repeatern.",
+    href: "/service/wlan-optimierung"
+  },
+  {
+    category: "Beratung",
+    title: "Smart Home",
+    description: "Individuelle Lösungen für Licht, Heizung, Sicherheit und Sprachsteuerung.",
+    href: "/beratung/smart-home"
+  },
+  {
+    category: "Service",
+    title: "Drucker & Scanner",
+    description: "Installation, Konfiguration und Fehlerbehebung für Drucker, Scanner und Multifunktionsgeräte.",
+    href: "/service/drucker-einrichten"
+  },
+  {
+    category: "Schulung",
+    title: "Online-Sicherheit",
+    description: "Passwortmanager, Zwei-Faktor-Authentifizierung und sichere Kommunikation erklärt.",
+    href: "/schulung/online-sicherheit"
+  },
+  {
+    category: "Beratung",
+    title: "Geräteauswahl",
+    description: "Wir empfehlen passende Geräte, übernehmen Einkauf, Einrichtung und Einweisung.",
+    href: "/beratung/geraeteauswahl"
+  }
+];
+---
+
+<BaseLayout
+  title="IT-Leistungen in München: Service, Schulung, Beratung"
+  description="IT-Experten 24 bietet umfassende IT-Dienstleistungen für Privatkunden in München: Service, Schulungen für Senior:innen, Beratung für Familien."
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-6xl px-6">
+      <span class="badge">Unsere Leistungen</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Wir kümmern uns um Ihre gesamte Technik</h1>
+      <p class="mt-4 text-lg text-text/70 max-w-3xl">
+        Von der Fehlersuche bis zur langfristigen IT-Betreuung – wir begleiten Sie Schritt für Schritt. Wählen Sie aus übergreifenden Servicepaketen oder maßgeschneiderten Lösungen.
+      </p>
+    </section>
+
+    <section class="mx-auto mt-12 w-full max-w-6xl px-6">
+      <div class="grid gap-8 md:grid-cols-2">
+        {services.map((service) => (
+          <article class="card h-full">
+            <span class="badge">{service.category}</span>
+            <h2 class="mt-4 text-2xl font-semibold text-text">{service.title}</h2>
+            <p class="mt-2 text-sm text-text/70">{service.description}</p>
+            <a href={service.href} class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:text-brand-green">Mehr erfahren</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <ServicesOverview />
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

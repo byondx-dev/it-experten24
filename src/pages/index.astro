@@ -1,0 +1,114 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Hero from "@components/Hero.astro";
+import ServiceGrid from "@components/ServiceGrid.astro";
+import Benefits from "@components/Benefits.astro";
+import ServiceHighlights from "@components/ServiceHighlights.astro";
+import Testimonials from "@components/Testimonials.astro";
+import CTASection from "@components/CTASection.astro";
+import FAQ from "@components/FAQ.astro";
+import BlogTeaser from "@components/BlogTeaser.astro";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "IT-Experten 24",
+  image: "https://www.it-experten24.de/images/hero-tech-support.webp",
+  url: "https://www.it-experten24.de/",
+  telephone: "+49-89-12345678",
+  priceRange: "€€",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Musterstraße 12",
+    addressLocality: "München",
+    postalCode: "80331",
+    addressCountry: "DE"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "48.137154",
+    longitude: "11.576124"
+  },
+  openingHoursSpecification: [{
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "08:00",
+    closes: "20:00"
+  }],
+  sameAs: [
+    "https://www.facebook.com",
+    "https://www.instagram.com",
+    "https://www.linkedin.com"
+  ],
+  areaServed: {
+    "@type": "City",
+    name: "München"
+  },
+  makesOffer: [
+    {
+      "@type": "Offer",
+      name: "PC & Laptop Service",
+      price: "64",
+      priceCurrency: "EUR"
+    },
+    {
+      "@type": "Offer",
+      name: "Fernwartung",
+      price: "32",
+      priceCurrency: "EUR"
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Wie schnell können Sie bei mir sein?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "In München sind wir oft innerhalb von 2 Stunden vor Ort. Für Termine im Umland stimmen wir eine Anfahrt nach Verfügbarkeit ab. Alternativ unterstützen wir per Fernwartung noch schneller."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Sind Ihre Services für Senior:innen geeignet?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ja, wir sind auf Senior:innen spezialisiert: langsame Erklärung, Übungsblätter, Schritt-für-Schritt-Anleitungen und auf Wunsch direkte Abstimmung mit Angehörigen."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Wie läuft die Fernwartung ab?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sie installieren unsere sichere Support-App, wir verbinden uns nach Freigabe und lösen das Problem gemeinsam. Danach wird die Verbindung wieder getrennt."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="IT-Hilfe München für Privatkunden, Senioren & Familien"
+  description="IT-Experten 24 bietet schnelle Computerhilfe, Schulungen und Beratung für München und Umgebung. Vor Ort oder per Fernwartung – zuverlässig seit 2010."
+  structuredData={[localBusinessSchema, faqSchema]}
+>
+  <Header />
+  <main>
+    <Hero />
+    <ServiceGrid />
+    <Benefits />
+    <ServiceHighlights />
+    <Testimonials />
+    <BlogTeaser />
+    <FAQ />
+    <CTASection />
+  </main>
+  <Footer />
+</BaseLayout>

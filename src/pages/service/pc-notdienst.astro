@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="PC & Laptop Notdienst München"
+  description="Schneller PC-Notdienst für München: Viren entfernen, Daten retten, Computer beschleunigen – IT-Experten 24 hilft unkompliziert."
+  canonical="https://www.it-experten24.de/service/pc-notdienst"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Service</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">PC & Laptop Notdienst für München</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Ob abgestürzter Rechner, seltsame Fehlermeldungen oder ein dringender Termin – wir sind schnell zur Stelle. Unsere Techniker:innen kommen zu Ihnen nach Hause oder helfen per Fernwartung, damit Sie zügig weiterarbeiten können.
+      </p>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Was wir lösen</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Windows startet nicht oder bleibt hängen</li>
+            <li>Viren- und Malware-Beseitigung</li>
+            <li>Datensicherung & Datenrettung</li>
+            <li>Hardware-Upgrades und Austausch</li>
+            <li>Langsame Systeme beschleunigen</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Ablauf & Vorteile</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Terminvereinbarung telefonisch oder online</li>
+            <li>Transparente Fehlerdiagnose vor Ort</li>
+            <li>Fester Stundensatz & faire Abrechnung</li>
+            <li>Auf Wunsch Schutz vor zukünftigen Problemen</li>
+            <li>Optional: Geräteabholung bei komplexen Schäden</li>
+          </ul>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Termin buchen</a>
+        <a href="tel:+498912345678" class="btn-secondary">Soforthilfe: 089 123 45 678</a>
+      </div>
+      <div class="mt-16 grid gap-8 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Welche Geräte wir unterstützen</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Windows-PCs von Dell, HP, Lenovo, Acer, ASUS sowie maßgeschneiderte Systeme. Auch Apple iMac und MacBook werden von zertifizierten Techniker:innen betreut.
+          </p>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Sicherheit für Ihre Daten</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Wir arbeiten DSGVO-konform, dokumentieren die Schritte und übernehmen auf Wunsch regelmäßige Wartung, Updates und automatisierte Backups.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

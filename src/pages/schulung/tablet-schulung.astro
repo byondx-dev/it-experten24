@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="Tablet & Smartphone Schulung in München"
+  description="Schulung für Tablets und Smartphones in München: WhatsApp, Fotos, Online-Banking – verständlich erklärt von IT-Experten 24."
+  canonical="https://www.it-experten24.de/schulung/tablet-schulung"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Schulung</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Tablet & Smartphone Schulung</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Wir begleiten Sie beim sicheren und selbstbewussten Umgang mit iPad, Android-Tablet oder Smartphone. Schritt für Schritt erklären wir wichtige Funktionen und richten alles so ein, dass Sie die Technik gerne nutzen.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Typische Inhalte</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>WhatsApp & sichere Kommunikation</li>
+            <li>Fotos aufnehmen, sortieren und teilen</li>
+            <li>Digitale Behördengänge & Gesundheits-Apps</li>
+            <li>Online-Banking und Sicherheitsregeln</li>
+            <li>Cloud-Speicher und Datensicherung</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">So funktioniert die Schulung</h2>
+          <ol class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Wir besprechen telefonische Vorkenntnisse</li>
+            <li>Individueller Termin vor Ort oder per Video</li>
+            <li>Wir üben an Ihrem Gerät mit verständlichen Beispielen</li>
+            <li>Sie erhalten Merkblätter zum Nachlesen</li>
+            <li>Bei Bedarf bieten wir regelmäßige Wiederholungen</li>
+          </ol>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Schulung anfragen</a>
+        <a href="tel:+498912345678" class="btn-secondary">Telefonische Beratung</a>
+      </div>
+      <article class="card mt-12">
+        <h2 class="text-lg font-semibold text-text">Ideal für Senior:innen & Familien</h2>
+        <p class="mt-2 text-sm text-text/70">
+          Wir nehmen uns Zeit für alle Fragen, wiederholen geduldig und vermitteln Sicherheitsbewusstsein. Auf Wunsch binden wir Angehörige ein und richten Familienfreigaben oder Notfall-Kontakte ein.
+        </p>
+      </article>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

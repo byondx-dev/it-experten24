@@ -1,0 +1,58 @@
+---
+const services = [
+  {
+    title: "PC & Laptop Unterstützung",
+    description: "Reparatur, Performance-Optimierung, Virenschutz und Datensicherung für alle Geräte.",
+    href: "/service/pc-notdienst"
+  },
+  {
+    title: "Netzwerk & WLAN",
+    description: "Schnelles WLAN im ganzen Zuhause, Router-Setup, Mesh-Systeme und Smart-Home-Anbindung.",
+    href: "/service/wlan-optimierung"
+  },
+  {
+    title: "Smartphone & Tablet",
+    description: "Einrichtung, Synchronisation, sichere Nutzung und Datenschutz für mobile Geräte.",
+    href: "/schulung/tablet-schulung"
+  },
+  {
+    title: "Drucker & Scanner",
+    description: "Installation, Fehlerbehebung und Integration in Ihr Heimnetzwerk.",
+    href: "/service/drucker-einrichten"
+  },
+  {
+    title: "Digitale Sicherheit",
+    description: "Phishing-Schutz, Passwort-Strategien, Zwei-Faktor-Authentifizierung, Update-Management.",
+    href: "/beratung/it-sicherheit"
+  },
+  {
+    title: "Individuelle Schulungen",
+    description: "Geduldige Unterstützung für Senior:innen und Familien – Schritt für Schritt erklärt.",
+    href: "/schulung/individuelle-schulung"
+  }
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-6 py-20">
+  <div class="text-center">
+    <h2 class="section-heading">Leistungen, die wirklich helfen</h2>
+    <p class="section-subheading mx-auto">
+      Wir bringen Ruhe in Ihre Technik: persönlich, verständlich und mit Liebe zum Detail – für München und Umgebung.
+    </p>
+  </div>
+  <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+    {services.map((service) => (
+      <article class="card h-full">
+        <h3 class="text-xl font-semibold text-text">{service.title}</h3>
+        <p class="mt-3 text-sm text-text/70">{service.description}</p>
+        <a href={service.href} class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-blue hover:text-brand-green">
+          Mehr erfahren
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>

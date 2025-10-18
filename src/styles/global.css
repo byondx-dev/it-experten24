@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-text font-sans antialiased;
+}
+
+a {
+  @apply text-brand-blue transition-colors duration-200;
+}
+
+a:hover,
+a:focus {
+  @apply text-brand-green;
+}
+
+.section-heading {
+  @apply text-3xl md:text-4xl font-semibold text-text;
+}
+
+.section-subheading {
+  @apply mt-2 text-lg text-text/80 max-w-3xl;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-soft bg-brand-blue px-6 py-3 text-white font-semibold shadow-card transition-transform duration-200 ease-out;
+}
+
+.btn-primary:hover {
+  @apply bg-brand-blue/90 -translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-soft border border-brand-blue px-6 py-3 text-brand-blue font-semibold transition-colors duration-200 ease-out;
+}
+
+.btn-secondary:hover {
+  @apply border-brand-green text-brand-green;
+}
+
+.card {
+  @apply rounded-2xl bg-white p-6 shadow-card;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full bg-brand-blue/10 px-3 py-1 text-sm font-medium text-brand-blue;
+}
+
+.prose {
+  @apply text-base leading-relaxed text-text/80;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply text-text font-semibold mt-8;
+}
+
+.prose p {
+  @apply mt-4;
+}
+
+.prose ul {
+  @apply mt-4 list-disc pl-5;
+}
+
+.prose ol {
+  @apply mt-4 list-decimal pl-5;
+}
+
+.prose li {
+  @apply mt-1;
+}

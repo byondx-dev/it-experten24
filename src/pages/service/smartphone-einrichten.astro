@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="Smartphone Einrichtung München"
+  description="Wir richten Ihr Smartphone in München ein: Kontakte übertragen, Apps einrichten, Sicherheit konfigurieren."
+  canonical="https://www.it-experten24.de/service/smartphone-einrichten"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Service</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Smartphone & Tablet einrichten</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Beim Wechsel zu einem neuen Gerät oder der Ersteinrichtung helfen wir Schritt für Schritt. Wir übertragen Kontakte, richten Ihre Lieblings-Apps ein und aktivieren Sicherheitsfunktionen – damit Sie sofort loslegen können.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Unser Service</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Übertragung von Kontakten, Fotos und Kalendern</li>
+            <li>Einrichtung von E-Mail, Messenger und Cloud</li>
+            <li>Sicherheitsfunktionen & Backup aktivieren</li>
+            <li>Einweisung in wichtige Gesten und Bedienungshilfen</li>
+            <li>Installation nützlicher Apps und Kontrollen für Kinder</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Besonderer Fokus</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Für Senior:innen erklären wir WhatsApp, Fotos und Videotelefonie geduldig. Familien zeigen wir, wie sich Geräte kindersicher nutzen lassen – inklusive Zeitlimits und Jugendschutz.
+          </p>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Termin buchen</a>
+        <a href="tel:+498912345678" class="btn-secondary">089 123 45 678</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

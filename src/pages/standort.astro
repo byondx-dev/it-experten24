@@ -1,0 +1,72 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="IT-Service Standort München & Umgebung"
+  description="IT-Experten 24 betreut München und das Umland: Vor Ort, per Fernwartung oder telefonisch – für Privatkunden, Familien und Senior:innen."
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-6xl px-6">
+      <span class="badge">Standort</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Ihr IT-Dienstleister in München & Umgebung</h1>
+      <p class="mt-4 text-lg text-text/70 max-w-3xl">
+        Von der Altstadt bis in den Landkreis: Wir sind in München, Freising, Dachau, Fürstenfeldbruck und im Süden bis Starnberg unterwegs. Zusätzlich bieten wir sichere Fernwartung und telefonische Soforthilfe – ideal für schnelle Lösungen.
+      </p>
+    </section>
+
+    <section class="mx-auto mt-12 w-full max-w-6xl px-6">
+      <div class="grid gap-8 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-xl font-semibold text-text">Vor-Ort-Service in München</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Altstadt-Lehel, Maxvorstadt, Schwabing</li>
+            <li>Bogenhausen, Haidhausen, Giesing</li>
+            <li>Sendling, Hadern, Pasing, Neuhausen</li>
+            <li>Trudering-Riem, Ramersdorf, Berg am Laim</li>
+            <li>Laim, Moosach, Allach-Untermenzing</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-xl font-semibold text-text">Fernwartung in ganz Bayern</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Über unsere verschlüsselte Fernwartung helfen wir Ihnen noch schneller – unabhängig vom Standort. Ideal für regelmäßige Updates, Fehleranalyse oder Fragen zur sicheren Nutzung.
+          </p>
+          <p class="mt-3 text-sm text-text/70">
+            Wir begleiten Familien mit Angehörigen in ganz Deutschland und stellen sicher, dass alle Geräte geschützt sind.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-12 w-full max-w-6xl rounded-3xl bg-white px-6 py-12">
+      <h2 class="text-2xl font-semibold text-text">So kommen Sie zu uns</h2>
+      <p class="mt-3 text-sm text-text/70">
+        IT-Experten 24<br />
+        Musterstraße 12<br />
+        80331 München
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="https://maps.google.com" class="btn-primary" rel="noopener">Route planen</a>
+        <a href="tel:+498912345678" class="btn-secondary">089 123 45 678</a>
+        <a href="https://wa.me/498912345678" class="btn-secondary">WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-12 w-full max-w-6xl px-6">
+      <article class="card">
+        <h2 class="text-xl font-semibold text-text">Vorteile der Fernwartung</h2>
+        <ul class="mt-4 space-y-3 text-sm text-text/70">
+          <li>Start innerhalb von Minuten möglich</li>
+          <li>Keine Anfahrtskosten</li>
+          <li>Sichere Verbindung mit Ende-zu-Ende-Verschlüsselung</li>
+          <li>Ideal für Nachbetreuung und kleinere Anpassungen</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

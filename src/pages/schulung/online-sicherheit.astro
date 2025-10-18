@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="Online-Sicherheit Schulung München"
+  description="Online-Sicherheit lernen in München: Passwortmanager, Phishing-Schutz, Zwei-Faktor-Authentifizierung."
+  canonical="https://www.it-experten24.de/schulung/online-sicherheit"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Schulung</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">Online-Sicherheit für Zuhause</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Cyberkriminalität macht auch vor Privatpersonen nicht halt. Wir zeigen, wie Sie Phishing erkennen, Passwörter sicher verwalten und Ihre Geräte vor Angriffen schützen – verständlich für alle Altersgruppen.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Inhalte der Schulung</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Erkennen von Phishing-Mails und Fake-Websites</li>
+            <li>Passwortmanager einrichten & nutzen</li>
+            <li>Zwei-Faktor-Authentifizierung aktivieren</li>
+            <li>Sichere Nutzung von Online-Banking</li>
+            <li>Kindersicherung und familiäre Sicherheitstipps</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">So profitieren Sie</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Wir erklären ohne Fachchinesisch, erstellen Checklisten und helfen beim direkten Umsetzen. Nach der Schulung erhalten Sie eine Übersicht mit allen empfohlenen Einstellungen.
+          </p>
+          <p class="mt-3 text-sm text-text/70">
+            Ideal für Familien, Senior:innen oder als Geschenk für Angehörige, die sicher online unterwegs sein sollen.
+          </p>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Schulung buchen</a>
+        <a href="tel:+498912345678" class="btn-secondary">Fragen? 089 123 45 678</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

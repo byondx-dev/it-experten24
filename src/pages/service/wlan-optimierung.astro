@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="WLAN optimieren in München"
+  description="Besseres WLAN in München: Mesh-Systeme, Router-Setup, Störungsanalyse. IT-Experten 24 sorgt für stabiles Internet zuhause."
+  canonical="https://www.it-experten24.de/service/wlan-optimierung"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Service</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">WLAN & Netzwerk optimieren</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Funklöcher, schwache Signale oder langsames Internet? Wir analysieren Ihr Heimnetz, empfehlen passende Hardware und richten alles so ein, dass alle Geräte zuverlässig verbunden sind – vom Smart-TV bis zum Tablet.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Unsere Leistungen</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Standortanalyse für Router & Repeater</li>
+            <li>Einrichtung moderner Mesh-Systeme</li>
+            <li>Absicherung Ihres WLAN mit WPA3</li>
+            <li>Priorisierung für Homeoffice & Streaming</li>
+            <li>Integration von Smart-Home-Geräten</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">So gehen wir vor</h2>
+          <ol class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Signal-Check aller Räume und Stockwerke</li>
+            <li>Messung möglicher Störquellen (z. B. Nachbar-WLAN, Mikrowelle)</li>
+            <li>Empfehlung geeigneter Router, Repeater oder Powerline</li>
+            <li>Installation & Feineinstellung inkl. QR-Zugang</li>
+            <li>Übergabe mit Dokumentation und Tipps</li>
+          </ol>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Termin vereinbaren</a>
+        <a href="tel:+498912345678" class="btn-secondary">089 123 45 678</a>
+      </div>
+      <article class="card mt-12">
+        <h2 class="text-lg font-semibold text-text">Perfektes WLAN für Familien</h2>
+        <p class="mt-2 text-sm text-text/70">
+          Kinder nutzen Tablets für die Schule, Eltern arbeiten im Homeoffice und Streaming soll ruckelfrei laufen: Wir priorisieren wichtige Geräte, richten Gastnetzwerke ein und sorgen mit Zeitschaltungen für digitale Auszeiten.
+        </p>
+      </article>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

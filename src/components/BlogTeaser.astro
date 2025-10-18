@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+const latestPosts = posts.sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime()).slice(0, 3);
+---
+
+<section class="mx-auto w-full max-w-6xl px-6 py-20" id="blog">
+  <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <h2 class="section-heading">Tipps & Neuigkeiten aus unserem Blog</h2>
+      <p class="section-subheading">Wichtige Hinweise zu Updates, Sicherheit und praktischen Alltagstipps – speziell für München und Umgebung.</p>
+    </div>
+    <a href="/blog" class="btn-secondary">Alle Beiträge</a>
+  </div>
+  <div class="mt-12 grid gap-8 md:grid-cols-3">
+    {latestPosts.map((post) => (
+      <article class="card flex flex-col gap-4">
+        <a href={`/blog/${post.slug}`} class="block overflow-hidden rounded-2xl">
+          <img src={post.data.heroImage ?? "/images/blog-placeholder.webp"} alt={post.data.title} class="h-48 w-full object-cover transition-transform duration-200 hover:scale-105" loading="lazy" />
+        </a>
+        <div class="flex items-center gap-2 text-xs font-medium text-brand-blue/80">
+          <span>{new Date(post.data.publishedAt).toLocaleDateString("de-DE", { dateStyle: "long" })}</span>
+          <span>•</span>
+          <span>{post.data.readingTime ?? "5 Min"}</span>
+        </div>
+        <h3 class="text-xl font-semibold text-text">
+          <a href={`/blog/${post.slug}`} class="hover:text-brand-blue">{post.data.title}</a>
+        </h3>
+        <p class="text-sm text-text/70">{post.data.excerpt}</p>
+        <a href={`/blog/${post.slug}`} class="mt-auto inline-flex items-center gap-2 text-sm font-medium text-brand-blue hover:text-brand-green">
+          Weiterlesen
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>

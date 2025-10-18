@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout
+  title="IT-Sicherheitsberatung München"
+  description="IT-Sicherheit für Privatkund:innen in München: Wir schützen Ihr Zuhause vor Phishing, Malware und Datenverlust."
+  canonical="https://www.it-experten24.de/beratung/it-sicherheit"
+>
+  <Header />
+  <main class="bg-background py-16">
+    <section class="mx-auto w-full max-w-5xl px-6">
+      <span class="badge">Beratung</span>
+      <h1 class="mt-6 text-4xl font-semibold text-text">IT-Sicherheit für Zuhause</h1>
+      <p class="mt-4 text-lg text-text/70">
+        Wir analysieren Ihr digitales Umfeld, identifizieren Risiken und sorgen mit klaren Empfehlungen für mehr Sicherheit. Dazu zählen Virenschutz, Passwortmanagement und Schutz vor Betrugsmaschen – individuell für Sie oder Ihre Familie.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Inhalte der Beratung</h2>
+          <ul class="mt-4 space-y-3 text-sm text-text/70">
+            <li>Sicherheitscheck für PC, Smartphone & Tablet</li>
+            <li>Firewall, Virenschutz und Update-Strategie</li>
+            <li>Backup-Konzepte (Cloud & lokal)</li>
+            <li>Phishing-Simulation & Trainings für Senior:innen</li>
+            <li>Kindersicherung & Jugendschutzfilter</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2 class="text-lg font-semibold text-text">Darum lohnt es sich</h2>
+          <p class="mt-3 text-sm text-text/70">
+            Wir erstellen einen individuellen Sicherheitsfahrplan, helfen bei der Umsetzung und bleiben langfristig Ihr Ansprechpartner. Auch regelmäßige Checks und automatische Updates planen wir gemeinsam ein.
+          </p>
+        </article>
+      </div>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/kontakt" class="btn-primary">Beratung anfragen</a>
+        <a href="tel:+498912345678" class="btn-secondary">Telefon: 089 123 45 678</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

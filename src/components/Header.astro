@@ -1,0 +1,28 @@
+---
+const navLinks = [
+  { href: "/", label: "Startseite" },
+  { href: "/leistungen", label: "Leistungen" },
+  { href: "/preise", label: "Preise" },
+  { href: "/standort", label: "Standort" },
+  { href: "/blog", label: "Blog" },
+  { href: "/kontakt", label: "Kontakt" }
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-white/40 bg-white/80 backdrop-blur">
+  <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="flex items-center gap-2">
+      <img src="/images/logo.svg" alt="IT-Experten 24" class="h-10 w-10" loading="lazy" />
+      <span class="text-lg font-semibold text-text">IT-Experten 24</span>
+    </a>
+    <nav class="hidden items-center gap-6 text-sm font-medium text-text/80 md:flex">
+      {navLinks.map((link) => (
+        <a href={link.href} class="rounded-md px-3 py-2 transition-colors hover:bg-brand-blue/10 hover:text-brand-blue">{link.label}</a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="tel:+498912345678" class="hidden rounded-soft bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-card transition-colors hover:bg-brand-green/90 lg:inline-flex">089 123 45 678</a>
+      <a href="/kontakt" class="btn-primary text-sm">Termin buchen</a>
+    </div>
+  </div>
+</header>
