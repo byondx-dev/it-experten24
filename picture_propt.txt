@@ -1,0 +1,40 @@
+{
+  "Objective": "Generate a warm, friendly vector illustration showing a younger person helping a senior use technology, in a modern flat style.",
+  "Style": {
+    "Art_Type": "Flat vector illustration",
+    "Color_Palette": "Soft, muted, warm tones (e.g. blue, beige, orange)",
+    "Line_Quality": "Clean, minimal shading",
+    "Mood": "Friendly, supportive, intergenerational"
+  },
+  "Characters": [
+    {
+      "Role": "Younger person",
+      "Age": "30s",
+      "Appearance": {
+        "Gender": "Male",
+        "Features": "Short hair, beard, glasses",
+        "Clothing": "Casual, polo shirt"
+      },
+      "Expression": "Friendly, instructive",
+      "Action": "Pointing at laptop screen, explaining something"
+    },
+    {
+      "Role": "Older person",
+      "Age": "70s–80s",
+      "Appearance": {
+        "Gender": "Female",
+        "Features": "White hair, earrings, light wrinkles",
+        "Clothing": "Cardigan over blouse"
+      },
+      "Expression": "Attentive, slightly curious",
+      "Action": "Looking at screen, hands on table"
+    }
+  ],
+  "Scene": {
+    "Setting": "Cozy, indoor home environment",
+    "Props": ["Laptop", "Table", "Potted plant", "Window in background"],
+    "Lighting": "Soft daylight"
+  },
+  "Use_Case": "Illustration for educational content or senior tech assistance programs",
+  "Instructions_For_Model": "Ensure proportions are realistic, no exaggerated cartoon features. Keep the background minimal but recognizable as a home setting. Focus on emotional warmth and clarity."
+}

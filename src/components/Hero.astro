@@ -1,55 +1,92 @@
-<section class="relative overflow-hidden bg-gradient-to-br from-brand-primary/10 via-white to-brand-accent/10 py-24">
-  <div class="absolute inset-0 -z-10">
-    <div class="absolute right-10 top-10 h-40 w-40 rounded-full bg-brand-primary/20 blur-3xl"></div>
-    <div class="absolute left-10 bottom-10 h-40 w-40 rounded-full bg-brand-accent/20 blur-3xl"></div>
-  </div>
-  <div class="mx-auto flex w-full max-w-6xl flex-col items-start gap-16 px-6 lg:flex-row lg:items-center">
-    <div class="max-w-2xl">
-      <span class="badge">IT-Hilfe für München & Umgebung</span>
-      <h1 class="mt-6 text-4xl font-semibold text-text md:text-5xl">
-        Schnelle IT-Hilfe für Zuhause, Familien und Senioren in München.
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
+  imageSrc?: string;
+  mobileImageSrc?: string;
+  showMobileImage?: boolean;
+  backgroundClass?: string;
+  className?: string;
+}
+
+const {
+  title = "Schnelle & verständliche IT-Hilfe in München",
+  description = "Wir lösen Ihre Computerprobleme direkt bei Ihnen vor Ort oder per Fernwartung – verständlich und zuverlässig.",
+  cta = {
+    label: "Jetzt kostenloses Erstgespräch buchen",
+    href: "/kontakt",
+  },
+  imageSrc = "/images/hero-service.png",
+  mobileImageSrc,
+  showMobileImage = true,
+  backgroundClass = "bg-[#E8F0FF]",
+  className = "",
+}: Props = Astro.props;
+
+const hasCTA = Boolean(cta?.label && cta?.href);
+const resolvedMobileImage = mobileImageSrc ?? imageSrc;
+const showImageOnMobile = showMobileImage && Boolean(resolvedMobileImage);
+const showImageOnDesktop = Boolean(imageSrc);
+---
+
+<section
+  class={`relative overflow-hidden pt-24 pb-10 md:pt-32 md:pb-14 lg:pt-16 lg:pb-16 ${backgroundClass} ${className}`}
+>
+  <div
+    class="relative mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 text-text md:px-8 lg:flex-row lg:items-center"
+  >
+    {showImageOnMobile && (
+      <div
+        class="pointer-events-none absolute inset-0 flex items-start justify-center overflow-hidden lg:hidden"
+        aria-hidden="true"
+      >
+        <img
+          src={resolvedMobileImage}
+          alt=""
+          class="h-full w-full object-cover object-top"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#E8F0FF]/90 via-[#E8F0FF]/75 to-[#E8F0FF]" />
+      </div>
+    )}
+
+    <div class="relative z-10 mt-20 max-w-2xl text-center md:mt-28 md:text-left lg:mt-0 lg:py-16 xl:py-20">
+      <h1 class="text-4xl font-semibold md:text-[3.25rem] md:leading-tight">
+        {title}
       </h1>
-      <p class="mt-4 text-lg text-text/80">
-        IT-Experten 24 löst Computerprobleme, richtet Geräte ein und unterstützt Sie mit geduldiger Schulung – direkt bei Ihnen, per Fernwartung oder telefonisch. Persönlich, verständlich und zuverlässig.
-      </p>
-      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-        <a href="/kontakt" class="btn-primary">Jetzt Termin sichern</a>
-        <a href="tel:+498912345678" class="btn-secondary">089 123 45 678</a>
-      </div>
-      <p class="mt-4 flex items-center gap-2 text-sm text-text/70">
-        <span class="inline-flex h-2 w-2 rounded-full bg-brand-accent"></span>
-        Soforthilfe in <strong>unter 2 Stunden</strong> in München Stadtgebiet möglich.
-      </p>
-    </div>
-    <div class="relative flex w-full max-w-xl items-center justify-center">
-      <div class="card z-10">
-        <img src="/images/hero-tech-support.webp" alt="Techniker unterstützt Senior mit Laptop" class="h-auto w-full rounded-2xl object-cover" loading="lazy" />
-        <div class="mt-4 space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-semibold text-text">Laptop Check</span>
-            <span class="text-xs text-text/60">30 Min</span>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-text/70">Akku testen</span>
-            <span class="font-medium text-brand-primary">✔</span>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-text/70">Update prüfen</span>
-            <span class="font-medium text-brand-primary">✔</span>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-text/70">Datensicherung</span>
-            <span class="font-medium text-text/70">optional</span>
-          </div>
+      {description && (
+        <p class="mt-6 text-lg text-text/80 md:text-xl md:leading-relaxed">
+          {description}
+        </p>
+      )}
+      {hasCTA && (
+        <div class="mt-10">
+          <a href={cta.href} class="btn-primary px-8 py-3 text-base md:text-lg">
+            {cta.label}
+          </a>
         </div>
-      </div>
-      <div class="absolute -left-6 -top-6 rounded-3xl border-2 border-dashed border-brand-primary/40 p-6">
-        <div class="flex flex-col gap-1 text-sm text-text/70">
-          <span class="font-semibold text-text">Fernwartung</span>
-          <span>Durchschnittliche Wartezeit</span>
-          <span class="text-lg font-semibold text-brand-primary">12 Minuten</span>
-        </div>
-      </div>
+      )}
     </div>
+
+    {showImageOnDesktop && (
+      <div
+        class="pointer-events-none absolute inset-0 hidden items-center justify-end overflow-hidden lg:flex"
+        aria-hidden="true"
+      >
+        <img
+          src={imageSrc}
+          alt=""
+          class="h-full w-full max-w-none object-contain object-right"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#E8F0FF]/95 via-[#E8F0FF]/40 to-transparent" />
+      </div>
+    )}
   </div>
 </section>
