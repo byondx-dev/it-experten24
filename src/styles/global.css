@@ -11,12 +11,16 @@ body {
 }
 
 a {
-  @apply text-brand-blue transition-colors duration-200;
+  @apply text-brand-primary transition-colors duration-200;
 }
 
 a:hover,
 a:focus {
-  @apply text-brand-green;
+  @apply text-brand-accent;
+}
+
+a:focus-visible {
+  @apply outline-none ring-2 ring-brand-primary ring-offset-2;
 }
 
 .section-heading {
@@ -28,27 +32,31 @@ a:focus {
 }
 
 .btn-primary {
-  @apply inline-flex items-center gap-2 rounded-soft bg-brand-blue px-6 py-3 text-white font-semibold shadow-card transition-transform duration-200 ease-out;
+  @apply inline-flex items-center gap-2 rounded-soft bg-brand-primary px-6 py-3 text-white font-semibold shadow-card transition-transform duration-200 ease-out;
 }
 
 .btn-primary:hover {
-  @apply bg-brand-blue/90 -translate-y-0.5;
+  @apply bg-brand-primary/90 -translate-y-1 scale-105;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center gap-2 rounded-soft border border-brand-blue px-6 py-3 text-brand-blue font-semibold transition-colors duration-200 ease-out;
+  @apply inline-flex items-center gap-2 rounded-soft border border-brand-primary px-6 py-3 text-brand-primary font-semibold transition-colors transition-transform duration-200 ease-out;
 }
 
 .btn-secondary:hover {
-  @apply border-brand-green text-brand-green;
+  @apply border-brand-accent text-brand-accent -translate-y-1 scale-105;
 }
 
 .card {
-  @apply rounded-2xl bg-white p-6 shadow-card;
+  @apply rounded-2xl bg-white p-6 shadow-card transition-transform duration-200 ease-out;
+}
+
+.card:hover {
+  @apply -translate-y-1;
 }
 
 .badge {
-  @apply inline-flex items-center rounded-full bg-brand-blue/10 px-3 py-1 text-sm font-medium text-brand-blue;
+  @apply inline-flex items-center rounded-full bg-brand-primary/10 px-3 py-1 text-sm font-medium text-brand-primary;
 }
 
 .prose {

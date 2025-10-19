@@ -69,12 +69,12 @@ const packages = [
             <p class="mt-2 text-sm text-text/70">{pkg.description}</p>
           </div>
           <div>
-            <span class="text-4xl font-bold text-brand-blue">{pkg.price}</span>
+            <span class="text-4xl font-bold text-brand-primary">{pkg.price}</span>
           </div>
           <ul class="flex-1 space-y-3 text-sm text-text/70">
             {pkg.features.map((feature) => (
               <li class="flex items-center justify-center gap-2">
-                <span class="inline-flex h-2 w-2 rounded-full bg-brand-green"></span>
+                <span class="inline-flex h-2 w-2 rounded-full bg-brand-accent"></span>
                 <span>{feature}</span>
               </li>
             ))}

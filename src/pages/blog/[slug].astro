@@ -61,7 +61,7 @@ const structuredData = {
       <figure class="mt-8 overflow-hidden rounded-3xl">
         <img src={post.data.heroImage ?? "/images/blog-placeholder.webp"} alt={post.data.title} class="h-auto w-full object-cover" loading="lazy" />
       </figure>
-      <div class="prose prose-slate mt-8 max-w-none prose-headings:text-text prose-a:text-brand-blue prose-strong:text-text">
+      <div class="prose prose-slate mt-8 max-w-none prose-headings:text-text prose-a:text-brand-primary prose-strong:text-text">
         <Content />
       </div>
       {headings.length > 0 && (
@@ -70,7 +70,7 @@ const structuredData = {
           <ul class="mt-4 space-y-2 text-sm text-text/70">
             {headings.filter((heading) => heading.depth <= 3).map((heading) => (
               <li>
-                <a href={`#${heading.slug}`} class="hover:text-brand-blue">
+                <a href={`#${heading.slug}`} class="hover:text-brand-primary">
                   {heading.text}
                 </a>
               </li>
@@ -78,9 +78,9 @@ const structuredData = {
           </ul>
         </aside>
       )}
-      <div class="mt-12 flex flex-wrap gap-3 text-sm text-brand-blue">
+      <div class="mt-12 flex flex-wrap gap-3 text-sm text-brand-primary">
         {post.data.tags?.map((tag) => (
-          <span class="rounded-full bg-brand-blue/10 px-3 py-1">#{tag}</span>
+          <span class="rounded-full bg-brand-primary/10 px-3 py-1">#{tag}</span>
         ))}
       </div>
       <div class="mt-12 rounded-3xl bg-white p-6 shadow-card">

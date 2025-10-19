@@ -12,11 +12,11 @@ export default {
     extend: {
       colors: {
         brand: {
-          blue: "#2E6BE6",
-          green: "#37B26C"
+          primary: "#1D4ED8",
+          accent: "#F97316"
         },
-        background: "#F5F6F8",
-        text: "#1E293B"
+        background: "#F8FAFF",
+        text: "#0F172A"
       },
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans]
@@ -25,7 +25,7 @@ export default {
         soft: "0.5rem"
       },
       boxShadow: {
-        card: "0 10px 40px rgba(46, 107, 230, 0.08)"
+        card: "0 10px 40px rgba(29, 78, 216, 0.12)"
       }
     }
   },
