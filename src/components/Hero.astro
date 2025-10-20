@@ -1,4 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro:assets";
+import heroDefaultImage from "../assets/hero-service.png";
+
+type ImageSource = string | ImageMetadata;
+
+const isImageMetadata = (value: ImageSource): value is ImageMetadata =>
+  typeof value === "object" && value !== null && "src" in value && "width" in value && "height" in value;
+
 export interface Props {
   title?: string;
   description?: string;
@@ -6,8 +15,8 @@ export interface Props {
     label: string;
     href: string;
   };
-  imageSrc?: string;
-  mobileImageSrc?: string;
+  imageSrc?: ImageSource;
+  mobileImageSrc?: ImageSource;
   showMobileImage?: boolean;
   backgroundClass?: string;
   className?: string;
@@ -20,7 +29,7 @@ const {
     label: "Jetzt kostenloses Erstgespräch buchen",
     href: "/kontakt",
   },
-  imageSrc = "/images/hero-service.png",
+  imageSrc = heroDefaultImage as ImageSource,
   mobileImageSrc,
   showMobileImage = true,
   backgroundClass = "bg-[#E8F0FF]",
@@ -44,13 +53,26 @@ const showImageOnDesktop = Boolean(imageSrc);
         class="pointer-events-none absolute inset-0 flex items-start justify-center overflow-hidden lg:hidden"
         aria-hidden="true"
       >
-        <img
-          src={resolvedMobileImage}
-          alt=""
-          class="h-full w-full object-cover object-top"
-          loading="lazy"
-          decoding="async"
-        />
+        {isImageMetadata(resolvedMobileImage) ? (
+          <Image
+            src={resolvedMobileImage}
+            alt=""
+            class="h-full w-full object-cover object-top"
+            loading="lazy"
+            decoding="async"
+            sizes="100vw"
+            widths={[480, 640, 768, 896, 1024]}
+            loading="eager"
+          />
+        ) : (
+          <img
+            src={resolvedMobileImage}
+            alt=""
+            class="h-full w-full object-cover object-top"
+            loading="eager"
+            decoding="async"
+          />
+        )}
         <div class="absolute inset-0 bg-gradient-to-b from-[#E8F0FF]/90 via-[#E8F0FF]/75 to-[#E8F0FF]" />
       </div>
     )}
@@ -78,13 +100,25 @@ const showImageOnDesktop = Boolean(imageSrc);
         class="pointer-events-none absolute inset-0 hidden items-center justify-end overflow-hidden lg:flex"
         aria-hidden="true"
       >
-        <img
-          src={imageSrc}
-          alt=""
-          class="h-full w-full max-w-none object-contain object-right"
-          loading="lazy"
-          decoding="async"
-        />
+        {isImageMetadata(imageSrc) ? (
+          <Image
+            src={imageSrc}
+            alt=""
+            class="h-full w-full max-w-none object-contain object-right"
+            loading="eager"
+            decoding="async"
+            sizes="(min-width: 1280px) 50vw, 100vw"
+            widths={[640, 768, 1024, 1280, 1536]}
+          />
+        ) : (
+          <img
+            src={imageSrc}
+            alt=""
+            class="h-full w-full max-w-none object-contain object-right"
+            loading="eager"
+            decoding="async"
+          />
+        )}
         <div class="absolute inset-0 bg-gradient-to-r from-[#E8F0FF]/95 via-[#E8F0FF]/40 to-transparent" />
       </div>
     )}

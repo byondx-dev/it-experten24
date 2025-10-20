@@ -1,7 +1,7 @@
 ---
 title: "Windows Update Fehler beheben: Häufige Codes und Lösungen"
 excerpt: "So lösen Sie die verbreitetsten Windows-Update-Fehlercodes Schritt für Schritt – inklusive Praxisbefehlen und Präventionstipps."
-heroImage: "/images/blog/windows-update-fehler-beheben.png"
+heroImage: "../../assets/blog/windows-update-fehler-beheben.png"
 publishedAt: "2025-03-28"
 updatedAt: "2025-03-28"
 readingTime: "8 Min"

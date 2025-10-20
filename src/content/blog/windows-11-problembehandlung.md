@@ -1,7 +1,7 @@
 ---
 title: "Windows 11 Problembehandlung"
 excerpt: "Schritt-für-Schritt-Anleitung zur Fehlersuche unter Windows 11 – von einfachen Checks bis zu professionellen Reparaturtipps."
-heroImage: "/images/blog/windows-11-problembehandlung.png"
+heroImage: "../../assets/blog/windows-11-problembehandlung.png"
 publishedAt: "2025-01-05"
 updatedAt: "2025-01-05"
 readingTime: "8 Min"

@@ -1,7 +1,7 @@
 ---
 title: "Cybersecurity-Checkliste für Selbstständige und KMU"
 excerpt: "Mit dieser praxisnahen Checkliste erhöhen Sie die IT-Sicherheit Ihres Unternehmens – ohne teure Großprojekte."
-heroImage: "/images/blog/cybersecurity-checkliste-kmu.png"
+heroImage: "../../assets/blog/cybersecurity-checkliste-kmu.png"
 publishedAt: "2025-04-19"
 updatedAt: "2025-04-19"
 readingTime: "7 Min"

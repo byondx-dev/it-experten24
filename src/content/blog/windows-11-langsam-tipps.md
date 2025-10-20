@@ -1,7 +1,7 @@
 ---
 title: "Windows 11 läuft langsam? 9 Sofort-Tipps für mehr Tempo"
 excerpt: "Ihr PC braucht ewig zum Starten oder Programme hängen? Mit diesen Maßnahmen beschleunigen Sie Windows 11 nachhaltig."
-heroImage: "/images/blog/windows-11-langsam-tipps.png"
+heroImage: "../../assets/blog/windows-11-langsam-tipps.png"
 publishedAt: "2025-04-02"
 updatedAt: "2025-04-02"
 readingTime: "7 Min"

@@ -1,7 +1,7 @@
 ---
 title: "Backup-Strategie für kleine Unternehmen 2025"
 excerpt: "Welche Daten sollten Sie sichern, wie oft und wohin? Die wichtigsten Backup-Konzepte für Selbstständige und KMU."
-heroImage: "/images/blog/backup-strategie-kmu.png"
+heroImage: "../../assets/blog/backup-strategie-kmu.png"
 publishedAt: "2025-04-15"
 updatedAt: "2025-04-15"
 readingTime: "8 Min"

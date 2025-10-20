@@ -41,9 +41,9 @@
     bar.style.width = `${progress * 100}%`;
   };
 
-  if (!bar) return;
-
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update, { passive: true });
+  if (bar) {
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+  }
 </script>

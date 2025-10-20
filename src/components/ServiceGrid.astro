@@ -1,45 +1,14 @@
 ---
-const services = [
-  {
-    title: "PC & Laptop Unterstützung",
-    description: "Reparatur, Performance-Optimierung, Virenschutz und Datensicherung für alle Geräte.",
-    href: "/service/pc-notdienst"
-  },
-  {
-    title: "Netzwerk & WLAN",
-    description: "Schnelles WLAN im ganzen Zuhause, Router-Setup, Mesh-Systeme und Smart-Home-Anbindung.",
-    href: "/service/wlan-optimierung"
-  },
-  {
-    title: "Smartphone & Tablet",
-    description: "Einrichtung, Synchronisation, sichere Nutzung und Datenschutz für mobile Geräte.",
-    href: "/schulung/tablet-schulung"
-  },
-  {
-    title: "Drucker & Scanner",
-    description: "Installation, Fehlerbehebung und Integration in Ihr Heimnetzwerk.",
-    href: "/service/drucker-einrichten"
-  },
-  {
-    title: "Digitale Sicherheit",
-    description: "Phishing-Schutz, Passwort-Strategien, Zwei-Faktor-Authentifizierung, Update-Management.",
-    href: "/beratung/it-sicherheit"
-  },
-  {
-    title: "Individuelle Schulungen",
-    description: "Geduldige Unterstützung für Senior:innen und Familien – Schritt für Schritt erklärt.",
-    href: "/schulung/individuelle-schulung"
-  }
-];
+import SectionHeading from "@components/SectionHeading.astro";
+import { services } from "@data/services";
 ---
 
 <section class="mx-auto w-full max-w-6xl px-6 py-20">
-  <div class="text-center">
-    <h2 class="section-heading">Leistungen, die wirklich helfen</h2>
-    <p class="section-subheading mx-auto">
-      Wir bringen Ruhe in Ihre Technik: persönlich, verständlich und mit Liebe zum Detail – für München und Umgebung.
-    </p>
-  </div>
+  <SectionHeading
+    title="Leistungen, die wirklich helfen"
+    subtitle="Wir bringen Ruhe in Ihre Technik: persönlich, verständlich und mit Liebe zum Detail – für München und Umgebung."
+    align="center"
+  />
   <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
     {services.map((service) => (
       <article class="card h-full">

@@ -1,7 +1,7 @@
 ---
 title: "WLAN bricht ständig ab? Ursachen erkennen und beheben"
 excerpt: "So stabilisieren Sie Ihr heimisches oder kleines Unternehmensnetz – von Router-Checks bis zu Profi-Einstellungen."
-heroImage: "/images/blog/wlan-abbrueche-loesen.png"
+heroImage: "../../assets/blog/wlan-abbrueche-loesen.png"
 publishedAt: "2025-04-09"
 updatedAt: "2025-04-09"
 readingTime: "7 Min"

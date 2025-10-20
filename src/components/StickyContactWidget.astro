@@ -1,8 +1,12 @@
 ---
-const phoneLabel = "+49 157 3313 5928";
-const phoneHref = "tel:+4915733135928";
-const whatsappHref = "https://wa.me/4915733135928";
-const mailHref = "mailto:hilfe@it-experten24.de";
+import { company } from "@data/company";
+
+const phoneLabel = company.phone.label;
+const phoneHref = company.phone.href;
+const whatsappLabel = company.whatsapp.label;
+const whatsappHref = company.whatsapp.href;
+const mailLabel = company.email.label;
+const mailHref = company.email.href;
 ---
 
 <aside class="sticky-contact" data-contact-widget>
@@ -25,11 +29,11 @@ const mailHref = "mailto:hilfe@it-experten24.de";
     </a>
     <a class="sticky-contact__link" href={whatsappHref} target="_blank" rel="noopener">
       <span class="sticky-contact__link-icon" aria-hidden="true">💬</span>
-      <span>WhatsApp Nachricht</span>
+      <span>{whatsappLabel}</span>
     </a>
     <a class="sticky-contact__link" href={mailHref}>
       <span class="sticky-contact__link-icon" aria-hidden="true">✉️</span>
-      <span>hilfe@it-experten24.de</span>
+      <span>{mailLabel}</span>
     </a>
     <button type="button" class="sticky-contact__close" data-contact-close>
       Schließen
@@ -141,12 +145,11 @@ const mailHref = "mailto:hilfe@it-experten24.de";
 </style>
 
 <script>
-  const root = document.currentScript?.parentElement;
-  if (!root) {
-    console.warn("StickyContactWidget could not find its root element.");
-  } else {
+  const initWidget = (root: Element) => {
+    if (!(root instanceof HTMLElement)) return;
     const toggle = root.querySelector("[data-contact-toggle]");
-    const panel = root.querySelector("[data-contact-panel]");
+    const panelElement = root.querySelector("[data-contact-panel]");
+    const panel = panelElement instanceof HTMLElement ? panelElement : null;
     const close = root.querySelector("[data-contact-close]");
 
     const openPanel = () => {
@@ -177,5 +180,20 @@ const mailHref = "mailto:hilfe@it-experten24.de";
         closePanel();
       }
     });
+  };
+
+  const setupWidgets = () => {
+    const widgets = document.querySelectorAll("[data-contact-widget]");
+    if (!widgets.length) {
+      console.warn("StickyContactWidget could not find any root element.");
+      return;
+    }
+    widgets.forEach((root) => initWidget(root));
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupWidgets, { once: true });
+  } else {
+    setupWidgets();
   }
 </script>

@@ -1,18 +1,15 @@
 ---
-type NavLink = {
-  href: string;
-  label: string;
-};
+import {
+  defaultCTA as defaultCTAConfig,
+  defaultPhone as defaultPhoneConfig,
+  primaryNavigation,
+  type CTAConfig,
+  type NavLink as NavigationLink,
+  type PhoneConfig,
+} from "@data/navigation";
 
-type CTA = {
-  label: string;
-  href: string;
-};
-
-interface PhoneConfig {
-  label: string;
-  href?: string;
-}
+type NavLink = NavigationLink;
+type CTA = CTAConfig;
 
 export interface Props {
   navLinks?: NavLink[];
@@ -23,18 +20,10 @@ export interface Props {
   className?: string;
 }
 
-const defaultNav: NavLink[] = [
-  { href: "/leistungen", label: "Leistungen" },
-  { href: "/preise", label: "Preise" },
-  { href: "/standort", label: "Standort" },
-  { href: "/blog", label: "Blog" },
-  { href: "/kontakt", label: "Kontakt" },
-];
-
 const {
-  navLinks = defaultNav,
-  cta = { label: "Termin buchen", href: "/kontakt" },
-  phone = { label: "+49 157 3313 5928", href: "tel:+4915733135928" },
+  navLinks = primaryNavigation,
+  cta = defaultCTAConfig,
+  phone = defaultPhoneConfig,
   logoSrc = "/images/logo.svg",
   homeHref = "/",
   className = "",
@@ -56,7 +45,13 @@ const randomToken =
     : Math.random().toString(36).slice(2, 10);
 const mobileNavId = `header-mobile-nav-${randomToken}`;
 const headerId = `header-root-${randomToken}`;
-const hasPhone = Boolean(phone && phone.label);
+const phoneConfig: PhoneConfig | undefined =
+  typeof phone === "object" && phone ? phone : undefined;
+const phoneLabel = phoneConfig?.label;
+const phoneHref = phoneLabel
+  ? phoneConfig?.href ?? `tel:${phoneLabel.replace(/\s+/g, "")}`
+  : undefined;
+const hasPhone = Boolean(phoneLabel && phoneHref);
 const hasCTA = Boolean(cta?.label && cta?.href);
 ---
 
@@ -66,7 +61,10 @@ const hasCTA = Boolean(cta?.label && cta?.href);
 >
   <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
     <a href={homeHref} class="flex items-center gap-3">
-      <img src={logoSrc} alt="IT-Experten 24 Logo" class="h-10 w-10 brightness-110 contrast-110" loading="lazy" />
+      <img
+        src={logoSrc}
+        alt="IT-Experten 24 Logo"
+        class="h-10 w-10 brightness-110 contrast-110"      />
       <span class="text-lg font-semibold text-brand-primary">IT-Experten 24</span>
     </a>
 
@@ -89,12 +87,12 @@ const hasCTA = Boolean(cta?.label && cta?.href);
     </nav>
 
     <div class="flex items-center gap-3 text-brand-primary">
-      {hasPhone && (
+      {hasPhone && phoneLabel && phoneHref && (
         <a
-          href={phone?.href ?? `tel:${phone?.label.replace(/\s+/g, "")}`}
+          href={phoneHref}
           class="hidden rounded-full bg-brand-accent px-4 py-2 text-sm font-semibold text-white shadow-card transition-colors hover:bg-brand-accent/90 hover:text-white focus-visible:text-white lg:inline-flex"
         >
-          {phone?.label}
+          {phoneLabel}
         </a>
       )}
       {hasCTA && (
@@ -133,7 +131,12 @@ const hasCTA = Boolean(cta?.label && cta?.href);
     <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-6">
       <div class="flex items-center justify-between">
         <a href={homeHref} class="flex items-center gap-3">
-          <img src={logoSrc} alt="IT-Experten 24 Logo" class="h-9 w-9 brightness-110 contrast-110" loading="lazy" />
+          <img
+            src={logoSrc}
+            alt="IT-Experten 24 Logo"
+            class="h-9 w-9 brightness-110 contrast-110"
+            loading="lazy"
+          />
           <span class="text-base font-semibold text-brand-primary">IT-Experten 24</span>
         </a>
         <button
@@ -180,14 +183,14 @@ const hasCTA = Boolean(cta?.label && cta?.href);
             {cta.label}
           </a>
         )}
-        {hasPhone && (
+        {hasPhone && phoneLabel && phoneHref && (
           <a
-            href={phone?.href ?? `tel:${phone?.label.replace(/\s+/g, "")}`}
+            href={phoneHref}
             class="flex w-full items-center justify-center gap-2 rounded-xl border border-brand-accent/20 px-4 py-3 text-base font-semibold text-brand-accent transition hover:border-brand-accent/40 hover:bg-brand-accent/10"
             data-mobile-close
           >
             <span>📞</span>
-            <span>{phone?.label}</span>
+            <span>{phoneLabel}</span>
           </a>
         )}
       </div>

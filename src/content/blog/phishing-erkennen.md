@@ -1,7 +1,7 @@
 ---
 title: "Phishing erkennen: So schützen Sie sich vor Betrug (2025)"
 excerpt: "Phishing-Mails werden immer raffinierter. Erfahren Sie, worauf Sie 2025 achten müssen, um sich und Ihre Familie zu schützen."
-heroImage: "/images/blog/phishing-erkennen.png"
+heroImage: "../../assets/blog/phishing-erkennen.png"
 publishedAt: "2025-03-20"
 readingTime: "6 Min"
 tags:

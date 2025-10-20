@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  badge?: string;
+  align?: "left" | "center" | "right";
+  className?: string;
+  subtitleClass?: string;
+}
+
+const {
+  title,
+  subtitle,
+  badge,
+  align = "left",
+  className = "",
+  subtitleClass = "",
+}: Props = Astro.props;
+
+const alignItems =
+  align === "center" ? "items-center text-center" : align === "right" ? "items-end text-right" : "";
+const badgeAlign =
+  align === "center" ? "mx-auto" : align === "right" ? "ml-auto" : "";
+const headingAlign =
+  align === "center" ? "text-center" : align === "right" ? "text-right" : "";
+const subtitleAlign =
+  align === "center" ? "mx-auto text-center" : align === "right" ? "ml-auto text-right" : "";
+---
+
+<div class={`flex flex-col gap-4 ${alignItems} ${className}`.trim()}>
+  {badge && <span class={`badge ${badgeAlign}`.trim()}>{badge}</span>}
+  <h2 class={`section-heading ${headingAlign}`.trim()}>{title}</h2>
+  {subtitle && (
+    <p class={`section-subheading ${subtitleAlign} ${subtitleClass}`.trim()}>
+      {subtitle}
+    </p>
+  )}
+</div>

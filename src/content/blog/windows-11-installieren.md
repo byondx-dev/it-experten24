@@ -1,7 +1,7 @@
 ---
 title: "Windows 11 installieren – Schritt für Schritt erklärt"
 excerpt: "Lernen Sie, wie Sie Windows 11 sicher auf Ihrem PC oder Laptop installieren – inklusive Vorbereitung, Installation und Nacharbeiten."
-heroImage: "/images/blog/windows-11-installieren.png"
+heroImage: "../../assets/blog/windows-11-installieren.png"
 publishedAt: "2025-01-05"
 updatedAt: "2025-01-05"
 readingTime: "7 Min"

@@ -1,16 +1,14 @@
+---
+import { serviceHighlights } from "@data/serviceHighlights";
+---
+
 <section class="bg-white py-20">
   <div class="mx-auto grid w-full max-w-6xl gap-8 px-6 md:grid-cols-3">
-    <article class="card">
-      <h3 class="text-lg font-semibold text-text">Persönliche Betreuung</h3>
-      <p class="mt-3 text-sm text-text/70">Wir arbeiten ohne Callcenter, Sie sprechen immer mit einer festen Ansprechperson vor Ort in München.</p>
-    </article>
-    <article class="card">
-      <h3 class="text-lg font-semibold text-text">Zertifizierte Expert:innen</h3>
-      <p class="mt-3 text-sm text-text/70">Microsoft, Apple, AVM, Synology und weitere Hersteller – wir kennen die Systeme und erklären sie verständlich.</p>
-    </article>
-    <article class="card">
-      <h3 class="text-lg font-semibold text-text">Sicher & DSGVO-konform</h3>
-      <p class="mt-3 text-sm text-text/70">Fernwartung, Passwörter und Backups – alles erfolgt nach aktuellen Sicherheitsstandards und mit Datenschutz im Fokus.</p>
-    </article>
+    {serviceHighlights.map((highlight) => (
+      <article class="card">
+        <h3 class="text-lg font-semibold text-text">{highlight.title}</h3>
+        <p class="mt-3 text-sm text-text/70">{highlight.description}</p>
+      </article>
+    ))}
   </div>
 </section>

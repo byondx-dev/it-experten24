@@ -1,7 +1,7 @@
 ---
 title: "Drucker druckt nicht? 5 schnelle Checks"
 excerpt: "Ihr Drucker streikt? Mit diesen fünf Prüfungen beheben Sie die häufigsten Probleme in wenigen Minuten."
-heroImage: "/images/blog/druckerprobleme-loesen.png"
+heroImage: "../../assets/blog/druckerprobleme-loesen.png"
 publishedAt: "2025-02-12"
 readingTime: "5 Min"
 tags:

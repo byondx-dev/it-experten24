@@ -3,7 +3,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import ScrollProgress from "@components/ScrollProgress.astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import blogPlaceholder from "../../assets/blog-placeholder.webp";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -17,12 +19,13 @@ const { post } = Astro.props;
 const { Content, headings } = await post.render();
 const baseUrl = Astro.site?.toString() ?? "https://www.it-experten24.de";
 const canonical = `${baseUrl}/blog/${post.slug}`;
+const heroImage = post.data.heroImage ?? blogPlaceholder;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: post.data.title,
   description: post.data.excerpt,
-  image: post.data.heroImage ? `${baseUrl}${post.data.heroImage}` : `${baseUrl}/images/blog-placeholder.webp`,
+  image: new URL(heroImage.src, baseUrl).toString(),
   datePublished: post.data.publishedAt,
   dateModified: post.data.updatedAt ?? post.data.publishedAt,
   author: {
@@ -61,7 +64,14 @@ const structuredData = {
         {post.data.readingTime && <span>Lesedauer: {post.data.readingTime}</span>}
       </div>
       <figure class="mt-8 overflow-hidden rounded-3xl">
-        <img src={post.data.heroImage ?? "/images/blog-placeholder.webp"} alt={post.data.title} class="h-auto w-full object-cover" loading="lazy" />
+        <Image
+          src={heroImage}
+          alt={post.data.title}
+          class="h-auto w-full object-cover"
+          loading="eager"
+          sizes="(min-width: 768px) 80vw, 100vw"
+          widths={[640, 768, 896, 1024, 1280]}
+        />
       </figure>
       <div class="prose prose-slate mt-8 max-w-none prose-headings:text-text prose-a:text-brand-primary prose-strong:text-text">
         <Content />
