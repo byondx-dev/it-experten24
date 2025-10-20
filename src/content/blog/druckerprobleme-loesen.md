@@ -1,7 +1,7 @@
 ---
 title: "Drucker druckt nicht? 5 schnelle Checks"
 excerpt: "Ihr Drucker streikt? Mit diesen fünf Prüfungen beheben Sie die häufigsten Probleme in wenigen Minuten."
-heroImage: "/images/blog/druckerprobleme.webp"
+heroImage: "/images/blog/druckerprobleme-loesen.png"
 publishedAt: "2025-02-12"
 readingTime: "5 Min"
 tags:
@@ -35,4 +35,4 @@ Entfernen Sie verklemmtes Papier, richten Sie das Papier sauber aus und schließ
 
 ## Bonus: Helfen lassen
 
-Wenn der Drucker weiterhin Probleme macht, kommen wir gerne vorbei oder schalten uns per Fernwartung auf Ihren PC. Wir kümmern uns um eine dauerhafte Lösung – auch in Mehrgeräte-Haushalten.
+Wenn der Drucker weiterhin Probleme macht, kommen wir gerne vorbei oder schalten uns per Fernwartung auf Ihren PC. Wir kümmern uns um eine dauerhafte Lösung – auch in Mehrgeräte-Haushalten. Tel: +49 157 3313 5928 | E-Mail: hilfe@it-experten24.de

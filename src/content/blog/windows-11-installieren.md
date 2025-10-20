@@ -1,7 +1,7 @@
 ---
 title: "Windows 11 installieren – Schritt für Schritt erklärt"
 excerpt: "Lernen Sie, wie Sie Windows 11 sicher auf Ihrem PC oder Laptop installieren – inklusive Vorbereitung, Installation und Nacharbeiten."
-heroImage: "/images/blog/windows-11.webp"
+heroImage: "/images/blog/windows-11-installieren.png"
 publishedAt: "2025-01-05"
 updatedAt: "2025-01-05"
 readingTime: "7 Min"
@@ -33,4 +33,4 @@ Microsoft hat den Umstieg auf Windows 11 erleichtert – trotzdem gibt es einige
 
 ## Hilfe aus München
 
-Wenn Sie Unterstützung benötigen, stehen wir Ihnen persönlich in München oder per Fernwartung zur Seite. Wir begleiten den gesamten Umstieg und sorgen für ein sicheres System.
+Wenn Sie Unterstützung benötigen, stehen wir Ihnen persönlich in München oder per Fernwartung zur Seite. Wir begleiten den gesamten Umstieg und sorgen für ein sicheres System. Tel: +49 157 3313 5928 | E-Mail: hilfe@it-experten24.de

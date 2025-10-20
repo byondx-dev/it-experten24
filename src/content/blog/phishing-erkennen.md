@@ -1,7 +1,7 @@
 ---
 title: "Phishing erkennen: So schützen Sie sich vor Betrug (2025)"
 excerpt: "Phishing-Mails werden immer raffinierter. Erfahren Sie, worauf Sie 2025 achten müssen, um sich und Ihre Familie zu schützen."
-heroImage: "/images/blog/phishing.webp"
+heroImage: "/images/blog/phishing-erkennen.png"
 publishedAt: "2025-03-20"
 readingTime: "6 Min"
 tags:
@@ -32,4 +32,4 @@ Phishing versucht, Sie durch täuschend echte E-Mails oder Webseiten zur Preisga
 
 ## Hilfe anfordern
 
-Wir prüfen gemeinsam mit Ihnen verdächtige Nachrichten, richten Spamfilter ein und erstellen leicht verständliche Merkblätter. Sprechen Sie uns an, wenn Sie sich unsicher sind.
+Wir prüfen gemeinsam mit Ihnen verdächtige Nachrichten, richten Spamfilter ein und erstellen leicht verständliche Merkblätter. Sprechen Sie uns an, wenn Sie sich unsicher sind. Tel: +49 157 3313 5928 | E-Mail: hilfe@it-experten24.de

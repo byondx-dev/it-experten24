@@ -1,0 +1,181 @@
+---
+const phoneLabel = "+49 157 3313 5928";
+const phoneHref = "tel:+4915733135928";
+const whatsappHref = "https://wa.me/4915733135928";
+const mailHref = "mailto:hilfe@it-experten24.de";
+---
+
+<aside class="sticky-contact" data-contact-widget>
+  <button
+    type="button"
+    class="sticky-contact__toggle"
+    data-contact-toggle
+    aria-expanded="false"
+    aria-controls="contact-quick-panel"
+  >
+    <span class="sticky-contact__icon" aria-hidden="true">💬</span>
+    <span>Schnelle Hilfe</span>
+  </button>
+
+  <div class="sticky-contact__panel" id="contact-quick-panel" data-contact-panel hidden>
+    <p class="sticky-contact__title">Wie möchten Sie uns kontaktieren?</p>
+    <a class="sticky-contact__link" href={phoneHref}>
+      <span class="sticky-contact__link-icon" aria-hidden="true">📞</span>
+      <span>{phoneLabel}</span>
+    </a>
+    <a class="sticky-contact__link" href={whatsappHref} target="_blank" rel="noopener">
+      <span class="sticky-contact__link-icon" aria-hidden="true">💬</span>
+      <span>WhatsApp Nachricht</span>
+    </a>
+    <a class="sticky-contact__link" href={mailHref}>
+      <span class="sticky-contact__link-icon" aria-hidden="true">✉️</span>
+      <span>hilfe@it-experten24.de</span>
+    </a>
+    <button type="button" class="sticky-contact__close" data-contact-close>
+      Schließen
+    </button>
+  </div>
+</aside>
+
+<style>
+  .sticky-contact {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    z-index: 70;
+  }
+
+  .sticky-contact__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #1D4ED8, #2563EB);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    box-shadow: 0 12px 30px rgba(29, 78, 216, 0.25);
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 200ms ease;
+  }
+
+  .sticky-contact__toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(29, 78, 216, 0.3);
+  }
+
+  .sticky-contact__icon {
+    font-size: 1.1rem;
+  }
+
+  .sticky-contact__panel {
+    width: min(320px, calc(100vw - 2.5rem));
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+    border: 1px solid rgba(29, 78, 216, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .sticky-contact__title {
+    font-weight: 600;
+    color: #0F172A;
+    margin: 0;
+  }
+
+  .sticky-contact__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    background: rgba(29, 78, 216, 0.05);
+    color: #1D4ED8;
+    font-weight: 500;
+    transition: background 150ms ease, transform 150ms ease;
+  }
+
+  .sticky-contact__link:hover {
+    background: rgba(29, 78, 216, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .sticky-contact__link-icon {
+    font-size: 1.15rem;
+  }
+
+  .sticky-contact__close {
+    align-self: flex-end;
+    border: none;
+    background: transparent;
+    color: #64748B;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .sticky-contact__close:hover {
+    color: #0F172A;
+  }
+
+  @media (max-width: 640px) {
+    .sticky-contact {
+      right: 1rem;
+      bottom: 1rem;
+    }
+
+    .sticky-contact__toggle {
+      padding-inline: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const root = document.currentScript?.parentElement;
+  if (!root) {
+    console.warn("StickyContactWidget could not find its root element.");
+  } else {
+    const toggle = root.querySelector("[data-contact-toggle]");
+    const panel = root.querySelector("[data-contact-panel]");
+    const close = root.querySelector("[data-contact-close]");
+
+    const openPanel = () => {
+      if (!panel || !toggle) return;
+      panel.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+    };
+
+    const closePanel = () => {
+      if (!panel || !toggle) return;
+      panel.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle?.addEventListener("click", () => {
+      if (!panel) return;
+      if (panel.hidden) {
+        openPanel();
+      } else {
+        closePanel();
+      }
+    });
+
+    close?.addEventListener("click", closePanel);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closePanel();
+      }
+    });
+  }
+</script>
