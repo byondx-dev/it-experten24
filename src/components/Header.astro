@@ -1,28 +1,245 @@
 ---
-const navLinks = [
-  { href: "/", label: "Startseite" },
+type NavLink = {
+  href: string;
+  label: string;
+};
+
+type CTA = {
+  label: string;
+  href: string;
+};
+
+interface PhoneConfig {
+  label: string;
+  href?: string;
+}
+
+export interface Props {
+  navLinks?: NavLink[];
+  cta?: CTA;
+  phone?: PhoneConfig | false;
+  logoSrc?: string;
+  homeHref?: string;
+  className?: string;
+}
+
+const defaultNav: NavLink[] = [
   { href: "/leistungen", label: "Leistungen" },
   { href: "/preise", label: "Preise" },
   { href: "/standort", label: "Standort" },
   { href: "/blog", label: "Blog" },
-  { href: "/kontakt", label: "Kontakt" }
+  { href: "/kontakt", label: "Kontakt" },
 ];
+
+const {
+  navLinks = defaultNav,
+  cta = { label: "Termin buchen", href: "/kontakt" },
+  phone = { label: "089 123 45 678", href: "tel:+498912345678" },
+  logoSrc = "/images/logo.svg",
+  homeHref = "/",
+  className = "",
+}: Props = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const isActive = (link: NavLink) => {
+  const normalizedHref = link.href.replace(/\/$/, "") || "/";
+  if (normalizedHref === "/") {
+    return currentPath === "/";
+  }
+  return currentPath.startsWith(normalizedHref);
+};
+
+const randomToken =
+  typeof crypto !== "undefined" && "randomUUID" in crypto
+    ? crypto.randomUUID().slice(0, 8)
+    : Math.random().toString(36).slice(2, 10);
+const mobileNavId = `header-mobile-nav-${randomToken}`;
+const headerId = `header-root-${randomToken}`;
+const hasPhone = Boolean(phone && phone.label);
+const hasCTA = Boolean(cta?.label && cta?.href);
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/40 bg-white/80 backdrop-blur">
-  <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/" class="flex items-center gap-2">
-      <img src="/images/logo.svg" alt="IT-Experten 24" class="h-10 w-10" loading="lazy" />
-      <span class="text-lg font-semibold text-text">IT-Experten 24</span>
+<header
+  data-header={headerId}
+  class={`sticky top-0 z-50 border-b border-white/30 bg-[#F5F8FF]/80 backdrop-blur supports-[backdrop-filter]:bg-[#F5F8FF]/70 ${className}`}
+>
+  <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+    <a href={homeHref} class="flex items-center gap-3">
+      <img src={logoSrc} alt="IT-Experten 24 Logo" class="h-10 w-10 brightness-110 contrast-110" loading="lazy" />
+      <span class="text-lg font-semibold text-brand-primary">IT-Experten 24</span>
     </a>
-    <nav class="hidden items-center gap-6 text-sm font-medium text-text/80 md:flex">
-      {navLinks.map((link) => (
-        <a href={link.href} class="rounded-md px-3 py-2 transition-colors hover:bg-brand-primary/10 hover:text-brand-primary">{link.label}</a>
-      ))}
+
+    <nav class="hidden items-center gap-2 text-sm font-medium text-brand-primary/80 lg:flex">
+      {navLinks.map((link) => {
+        const active = isActive(link);
+        return (
+          <a
+            href={link.href}
+            class={`rounded-md px-3 py-2 transition-colors ${
+              active
+                ? "bg-brand-primary/10 text-brand-primary"
+                : "hover:bg-brand-primary/10 hover:text-brand-primary"
+            }`}
+          >
+            {link.label}
+          </a>
+        );
+      })}
     </nav>
-    <div class="flex items-center gap-3">
-      <a href="tel:+498912345678" class="hidden rounded-soft bg-brand-accent px-4 py-2 text-sm font-semibold text-white shadow-card transition-colors hover:bg-brand-accent/90 lg:inline-flex">089 123 45 678</a>
-      <a href="/kontakt" class="btn-primary text-sm">Termin buchen</a>
+
+    <div class="flex items-center gap-3 text-brand-primary">
+      {hasPhone && (
+        <a
+          href={phone?.href ?? `tel:${phone?.label.replace(/\s+/g, "")}`}
+          class="hidden rounded-full bg-brand-accent px-4 py-2 text-sm font-semibold text-white shadow-card transition-colors hover:bg-brand-accent/90 hover:text-white focus-visible:text-white lg:inline-flex"
+        >
+          {phone?.label}
+        </a>
+      )}
+      {hasCTA && (
+        <a href={cta.href} class="btn-primary hidden text-sm lg:inline-flex">
+          {cta.label}
+        </a>
+      )}
+      <button
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-primary/20 text-brand-primary transition hover:border-brand-primary/40 hover:text-brand-primary/90 lg:hidden"
+        aria-expanded="false"
+        aria-controls={mobileNavId}
+        data-mobile-toggle
+      >
+        <span class="sr-only">Menü öffnen</span>
+        <svg
+          class="h-5 w-5"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
   </div>
+
+  <div
+    id={mobileNavId}
+    hidden
+    data-mobile-nav
+    class="border-t border-white/50 bg-[#F5F8FF]/98 text-brand-primary shadow-lg lg:hidden"
+  >
+    <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-6">
+      <div class="flex items-center justify-between">
+        <a href={homeHref} class="flex items-center gap-3">
+          <img src={logoSrc} alt="IT-Experten 24 Logo" class="h-9 w-9 brightness-110 contrast-110" loading="lazy" />
+          <span class="text-base font-semibold text-brand-primary">IT-Experten 24</span>
+        </a>
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-primary/20 text-brand-primary transition hover:border-brand-primary/40 hover:text-brand-primary/90"
+          aria-label="Menü schließen"
+          data-mobile-close
+        >
+          <svg
+            class="h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-2 text-base font-medium text-brand-primary/90">
+        {navLinks.map((link) => {
+          const active = isActive(link);
+          return (
+            <a
+              href={link.href}
+              class={`rounded-xl px-4 py-3 transition-colors ${
+                active
+                  ? "bg-brand-primary/10 text-brand-primary"
+                  : "hover:bg-brand-primary/10 hover:text-brand-primary"
+              }`}
+              data-mobile-close
+            >
+              {link.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <div class="flex flex-col gap-3">
+        {hasCTA && (
+          <a href={cta.href} class="btn-primary w-full justify-center text-base" data-mobile-close>
+            {cta.label}
+          </a>
+        )}
+        {hasPhone && (
+          <a
+            href={phone?.href ?? `tel:${phone?.label.replace(/\s+/g, "")}`}
+            class="flex w-full items-center justify-center gap-2 rounded-xl border border-brand-accent/20 px-4 py-3 text-base font-semibold text-brand-accent transition hover:border-brand-accent/40 hover:bg-brand-accent/10"
+            data-mobile-close
+          >
+            <span>📞</span>
+            <span>{phone?.label}</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+  <script>
+    const header = document.currentScript?.parentElement?.closest("[data-header]");
+    if (header) {
+      const toggle = header.querySelector("[data-mobile-toggle]");
+      const panel = header.querySelector("[data-mobile-nav]");
+      const closeButtons = header.querySelectorAll("[data-mobile-close]");
+      const body = document.body;
+
+      const closeMenu = () => {
+        if (!panel || !toggle || panel.hasAttribute("hidden")) return;
+        panel.setAttribute("hidden", "");
+        toggle.setAttribute("aria-expanded", "false");
+        body.classList.remove("overflow-hidden");
+      };
+
+      const openMenu = () => {
+        if (!panel || !toggle) return;
+        panel.removeAttribute("hidden");
+        toggle.setAttribute("aria-expanded", "true");
+        body.classList.add("overflow-hidden");
+      };
+
+      toggle?.addEventListener("click", () => {
+        if (!panel) return;
+        const isHidden = panel.hasAttribute("hidden");
+        if (isHidden) {
+          openMenu();
+        } else {
+          closeMenu();
+        }
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          closeMenu();
+        });
+      });
+
+      window.addEventListener(
+        "resize",
+        () => {
+          if (window.innerWidth >= 1024) {
+            closeMenu();
+          }
+        },
+        { passive: true }
+      );
+    }
+  </script>
 </header>
