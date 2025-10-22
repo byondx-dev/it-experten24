@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import StickyContactWidget from "@components/StickyContactWidget.astro";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
 
 const { title, description, canonical, structuredData } = Astro.props;
@@ -47,6 +46,5 @@ const structuredDataJson =
   </head>
   <body class="min-h-screen bg-background">
     <slot />
-    <StickyContactWidget />
   </body>
 </html>
