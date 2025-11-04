@@ -1,7 +1,7 @@
 ---
 title: "Ki Nutzen"
 excerpt: "Wie nutze ich KI richtig"
-heroImage: "../../src/assets/blog/artikel_KI-Entwicklungen.jpg"
+heroImage: "../../assets/blog/artikel_KI-Entwicklungen.jpg"
 publishedAt: "2025-11-04"
 updatedAt: "2025-11-04"
 readingTime: "7 Min"
