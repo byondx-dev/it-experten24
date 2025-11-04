@@ -18,7 +18,7 @@ tags:
 
 KI ist ein Teilgebiet der Informatik und kombiniert Bereiche wie **Mathematik, Statistik, Logik, Sprachverarbeitung** und **Maschinelles Lernen**.
 
----
+
 
 ## Geschichte der KI
 
