@@ -11,7 +11,6 @@ tags:
   - "AI"
 ---
 
-# Einführung in die Künstliche Intelligenz (KI)
 
 ## Was ist Künstliche Intelligenz?
 
