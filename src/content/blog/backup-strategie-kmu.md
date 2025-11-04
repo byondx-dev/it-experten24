@@ -11,7 +11,7 @@ tags:
   - "Datensicherheit"
 ---
 
-Ob Kundenakten, Rechnungen oder Konstruktionsdateien: Ein Datenverlust kann den Betrieb tage- bis wochenlang lahmlegen. Mit einer durchdachten Backup-Strategie stellen Sie sicher, dass Ihr Unternehmen selbst nach Ransomware oder Hardwaredefekt schnell wieder arbeitsfähig ist. test
+Ob Kundenakten, Rechnungen oder Konstruktionsdateien: Ein Datenverlust kann den Betrieb tage- bis wochenlang lahmlegen. Mit einer durchdachten Backup-Strategie stellen Sie sicher, dass Ihr Unternehmen selbst nach Ransomware oder Hardwaredefekt schnell wieder arbeitsfähig ist.
 
 ## Was muss gesichert werden?
 
